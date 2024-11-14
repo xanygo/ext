@@ -29,28 +29,28 @@ func TestValidator(t *testing.T) {
 
 	t.Run("validator-3", func(t *testing.T) {
 		var u *user
-		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Ext":""}`), &u)
+		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":""}`), &u)
 		fst.Equal(t, &user{Age: 12}, u)
 		fst.Error(t, err)
 	})
 
 	t.Run("validator-4", func(t *testing.T) {
 		var u *user
-		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Ext":"hello"}`), &u)
+		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":"hello"}`), &u)
 		fst.Equal(t, &user{Age: 12, Name: "hello"}, u)
 		fst.NoError(t, err)
 	})
 
 	t.Run("validator-5", func(t *testing.T) {
 		u := &user{}
-		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Ext":"hello"}`), u)
+		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":"hello"}`), u)
 		fst.Equal(t, &user{Age: 12, Name: "hello"}, u)
 		fst.NoError(t, err)
 	})
 
 	t.Run("validator-6", func(t *testing.T) {
 		u := &user{}
-		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Ext":""}`), u)
+		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":""}`), u)
 		fst.Equal(t, &user{Age: 12}, u)
 		fst.Error(t, err)
 	})

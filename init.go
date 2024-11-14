@@ -4,4 +4,13 @@
 
 package ext
 
-import _ "github.com/xanygo/ext/xcfgext"
+import (
+	"github.com/xanygo/ext/xcfgext"
+)
+
+func init() {
+	xcfgext.Init()
+}
+
+func Init() {
+}

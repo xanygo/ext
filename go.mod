@@ -5,8 +5,8 @@ go 1.23.0
 require (
 	github.com/BurntSushi/toml v1.4.0
 	github.com/fsgo/fst v0.0.5
-	github.com/go-playground/validator/v10 v10.22.0
-	github.com/xanygo/anygo v0.0.0-20240904125921-8d372aa469d1
+	github.com/go-playground/validator/v10 v10.22.1
+	github.com/xanygo/anygo v0.0.0-20241113084614-722aad42c607
 	gopkg.in/yaml.v3 v3.0.1
 )
 

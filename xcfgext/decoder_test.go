@@ -1,9 +1,10 @@
 package xcfgext
 
 import (
-	"github.com/xanygo/anygo/xcfg"
 	"reflect"
 	"testing"
+
+	"github.com/xanygo/anygo/xcfg"
 )
 
 func TestParse(t *testing.T) {
@@ -15,6 +16,7 @@ func TestParse(t *testing.T) {
 		name    string
 		args    args
 		want    map[string]string
+		setup   func(t *testing.T)
 		wantErr bool
 	}{
 		{
@@ -29,7 +31,7 @@ func TestParse(t *testing.T) {
 		{
 			name: "case 2",
 			args: args{
-				confName: "abc.json",
+				confName: "./testdata/abc.json",
 				obj:      map[string]string{},
 			},
 			want: map[string]string{
@@ -40,8 +42,12 @@ func TestParse(t *testing.T) {
 		{
 			name: "case 3",
 			args: args{
-				confName: "db1.toml",
+				confName: "./testdata/db1.toml",
 				obj:      map[string]string{},
+			},
+			setup: func(t *testing.T) {
+				t.Setenv("APP", "demo")
+				t.Setenv("Port2", "8080")
 			},
 			want: map[string]string{
 				"name":    "abc",
@@ -53,20 +59,25 @@ func TestParse(t *testing.T) {
 		{
 			name: "case 4",
 			args: args{
-				confName: "db1",
+				confName: "./testdata/db1",
 				obj:      map[string]string{},
+			},
+			setup: func(t *testing.T) {
+				t.Setenv("APP", "demo.fenji")
+				t.Setenv("Port1", "80")
+				t.Setenv("Port2", "8080")
 			},
 			want: map[string]string{
 				"name":    "abc",
 				"charset": "utf-8",
-				"Port":    "8080",
+				"Port":    "80",
 			},
 			wantErr: false,
 		},
 		{
 			name: "case 5",
 			args: args{
-				confName: "db2", // 存在同名目录的情况
+				confName: "./testdata/db2", // 存在同名目录的情况
 				obj:      map[string]string{},
 			},
 			want: map[string]string{
@@ -77,6 +88,9 @@ func TestParse(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+			if tt.setup != nil {
+				tt.setup(t)
+			}
 			err := xcfg.Parse(tt.args.confName, &tt.args.obj)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Parse() error = %v, wantErr %v", err, tt.wantErr)
