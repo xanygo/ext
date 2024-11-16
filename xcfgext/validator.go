@@ -4,13 +4,13 @@ import (
 	"reflect"
 
 	"github.com/go-playground/validator/v10"
-	"github.com/xanygo/anygo/xcfg"
+	"github.com/xanygo/anygo/xvalidator"
 )
 
-var _ xcfg.Validator = (*validatorV10)(nil)
+var _ xvalidator.Validator = (*validatorV10)(nil)
 
 func init() {
-	xcfg.DefaultValidator = newValidatorV10()
+	xvalidator.Default = newValidatorV10()
 }
 
 func newValidatorV10() *validatorV10 {
