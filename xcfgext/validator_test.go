@@ -3,8 +3,8 @@ package xcfgext
 import (
 	"testing"
 
-	"github.com/fsgo/fst"
 	"github.com/xanygo/anygo/xcfg"
+	"github.com/xanygo/anygo/xt"
 )
 
 func TestValidator(t *testing.T) {
@@ -16,42 +16,42 @@ func TestValidator(t *testing.T) {
 	t.Run("validator-1", func(t *testing.T) {
 		var u *user
 		err := xcfg.ParseBytes(".json", []byte(`{"Age":12}`), &u)
-		fst.Equal(t, &user{Age: 12}, u)
-		fst.Error(t, err)
+		xt.Equal(t, &user{Age: 12}, u)
+		xt.Error(t, err)
 	})
 
 	t.Run("validator-2", func(t *testing.T) {
 		var u *user
 		err := xcfg.ParseBytes(".json", []byte(``), &u)
-		fst.Nil(t, u)
-		fst.Error(t, err)
+		xt.Nil(t, u)
+		xt.Error(t, err)
 	})
 
 	t.Run("validator-3", func(t *testing.T) {
 		var u *user
 		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":""}`), &u)
-		fst.Equal(t, &user{Age: 12}, u)
-		fst.Error(t, err)
+		xt.Equal(t, &user{Age: 12}, u)
+		xt.Error(t, err)
 	})
 
 	t.Run("validator-4", func(t *testing.T) {
 		var u *user
 		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":"hello"}`), &u)
-		fst.Equal(t, &user{Age: 12, Name: "hello"}, u)
-		fst.NoError(t, err)
+		xt.Equal(t, &user{Age: 12, Name: "hello"}, u)
+		xt.NoError(t, err)
 	})
 
 	t.Run("validator-5", func(t *testing.T) {
 		u := &user{}
 		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":"hello"}`), u)
-		fst.Equal(t, &user{Age: 12, Name: "hello"}, u)
-		fst.NoError(t, err)
+		xt.Equal(t, &user{Age: 12, Name: "hello"}, u)
+		xt.NoError(t, err)
 	})
 
 	t.Run("validator-6", func(t *testing.T) {
 		u := &user{}
 		err := xcfg.ParseBytes(".json", []byte(`{"Age":12,"Name":""}`), u)
-		fst.Equal(t, &user{Age: 12}, u)
-		fst.Error(t, err)
+		xt.Equal(t, &user{Age: 12}, u)
+		xt.Error(t, err)
 	})
 }
