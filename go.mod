@@ -5,7 +5,7 @@ go 1.27.0
 require (
 	github.com/BurntSushi/toml v1.6.0
 	github.com/go-playground/validator/v10 v10.30.3
-	github.com/xanygo/anygo v0.0.0-20260822121723-85b92178c8d0
+	github.com/xanygo/anygo v0.0.0-20260907063545-c10daff548f8
 	gopkg.in/yaml.v3 v3.0.1
 )
 
