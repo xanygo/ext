@@ -26,8 +26,8 @@ github.com/rogpeppe/go-internal v1.16.0 h1:O9DK+vNMDVGLr2BeZqmpLeMjiMNkuXfcqntWb
 github.com/rogpeppe/go-internal v1.16.0/go.mod h1:DrUVZyrJU+txYW5/1kwtXQSMFio52ZOxX7yM1VHvnxs=
 github.com/stretchr/testify v1.12.1 h1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWDWE=
 github.com/stretchr/testify v1.12.1/go.mod h1:MDEgiDPPsNp5cuIrHPPCyornHKgEVbtFUmoNlxoYthg=
-github.com/xanygo/anygo v0.0.0-20260916120254-c8f5646ba97b h1:uqI6xV6tb3+hdcZbE6dvRmtGjQtbiQ8/t6WwFiTLBrs=
-github.com/xanygo/anygo v0.0.0-20260916120254-c8f5646ba97b/go.mod h1:ysGdYzDDbvQvlA7V4IfQkwdPiNENYPkI1Fmm2R/tb/4=
+github.com/xanygo/anygo v0.0.0-20261013044542-1fbffdb80471 h1:rSsGvzEmRXpOy3TC7OtLG7S3CsBmqQygZ09Zk+tPWkM=
+github.com/xanygo/anygo v0.0.0-20261013044542-1fbffdb80471/go.mod h1:53eFY9zVgDplBZxV2/FWDFODJAx8qQcQ2VSPGT5UUMo=
 go.yaml.in/yaml/v3 v3.0.5 h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=
 go.yaml.in/yaml/v3 v3.0.5/go.mod h1:HVTZu1O7/Vkt2N+BFy8Zza+lnLsABggaTM2ZpNIGuKg=
 golang.org/x/crypto v0.55.0 h1:+KWHjbgOaAQ66dh/YlkZKHlz9ZUlq61AFirAR9ntP8M=

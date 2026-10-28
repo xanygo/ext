@@ -1,11 +1,11 @@
 module github.com/xanygo/ext
 
-go 1.27.1
+go 1.27.2
 
 require (
 	github.com/BurntSushi/toml v1.6.0
 	github.com/go-playground/validator/v10 v10.30.3
-	github.com/xanygo/anygo v0.0.0-20260916120254-c8f5646ba97b
+	github.com/xanygo/anygo v0.0.0-20261013044542-1fbffdb80471
 	gopkg.in/yaml.v3 v3.0.1
 )
 
