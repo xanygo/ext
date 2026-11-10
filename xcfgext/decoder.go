@@ -5,7 +5,7 @@ import (
 	"github.com/xanygo/anygo/xcfg"
 	"github.com/xanygo/anygo/xenc"
 	"github.com/xanygo/anygo/xenc/xcodec"
-	"gopkg.in/yaml.v3"
+	"go.yaml.in/yaml/v4"
 )
 
 type decoders struct {
